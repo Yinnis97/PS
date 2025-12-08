@@ -4,7 +4,7 @@ function gp {
 }
 
 function gc {
-    param($msg = "1")
+    param($msg = "Update")
     git commit -m $msg
 }
 
@@ -17,7 +17,7 @@ function ginit
 
 function gacp
 {
-    param($msg)
+    param($msg = "Update")
     git add .
     git commit -m $msg
     git push origin master
