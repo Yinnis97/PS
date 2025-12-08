@@ -10,9 +10,17 @@ function gc {
 
 function ginit 
 {
-    param($url)
+    param(
+        [string]$url,
+        [string]$msg = "Init commit"
+    )
+
     git init
+    git branch -M master
     git remote add origin $url
+    git add .
+    git commit -m $msg
+    git push origin master
 }
 
 function gacp
@@ -21,6 +29,12 @@ function gacp
     git add .
     git commit -m $msg
     git push origin master
+}
+
+function pyinstall
+{
+    param($app)
+    py -m pip install $app
 }
 
 function hardware
