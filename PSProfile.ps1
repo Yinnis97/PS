@@ -1,3 +1,33 @@
+
+# Set default location
+# Only change location if we're in the default Windows PowerShell starting location
+if ((Get-Location).Path -eq "$env:USERPROFILE") {
+    Set-Location 'C:/_Yinnis/'
+}
+Clear-Host
+Write-Host ("--------------------------") -foreground Blue
+Write-Host "Shelling" -foreground DarkGray 
+# Write-Host "Default Path : " -foreground DarkGray -NoNewline
+# Write-Host $(Get-Location) -foreground DarkGray 
+Write-Host ("--------------------------") -foreground Blue
+Write-Host "" # New line
+function Get-Time 
+{ 
+    return $((Get-Date).ToLongTimeString())
+} 
+
+function prompt 
+{ 
+    # Show the time in blue
+    Write-Host '[' -foreground Gray -NoNewline 
+    Write-Host $(Get-Time) -foreground Blue -NoNewline 
+    Write-Host '] ' -foreground Gray -NoNewline 
+    # Change the location to a green '~' 
+    Write-Host $($(Get-Location).Path.replace('C:\_Yinnis',"~")) -foreground DarkYellow -NoNewline
+    Write-Host $(if ($nestedpromptlevel -ge 1){'>>'}) -NoNewline 
+    return '>' 
+} 
+
 function gpush {
     param($branch = "master")
     git push origin $branch
