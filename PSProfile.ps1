@@ -6,7 +6,7 @@ if ((Get-Location).Path -eq "$env:USERPROFILE") {
 }
 Clear-Host
 Write-Host ("--------------------------") -foreground Blue
-Write-Host "Shelling" -foreground DarkGray 
+Write-Host "Shelling" -foreground DarkYellow
 # Write-Host "Default Path : " -foreground DarkGray -NoNewline
 # Write-Host $(Get-Location) -foreground DarkGray 
 Write-Host ("--------------------------") -foreground Blue
