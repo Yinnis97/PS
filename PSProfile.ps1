@@ -1,9 +1,9 @@
-function gp {
+function gpush {
     param($branch = "master")
     git push origin $branch
 }
 
-function gc {
+function gcom {
     param($msg = "Update")
     git commit -m $msg
 }
@@ -35,6 +35,12 @@ function pyinstall
 {
     param($app)
     py -m pip install $app
+}
+
+function npp
+{
+    param($doc)
+    notepad++.exe $doc
 }
 
 function hardware
