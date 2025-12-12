@@ -6,13 +6,13 @@ if ((Get-Location).Path -eq "$env:USERPROFILE")
     Set-Location 'C:/_Yinnis/'
 }
 
+# Remove tha alias for clear since we create a function for it.
 Remove-Item Alias:\clear
+
 Clear-Host
 Write-Host ("-------------------------------------") -foreground Blue
 Write-Host "Shelling  -  " -foreground DarkYellow -NoNewline
 Write-Host (Get-Date) -foreground DarkYellow
-# Write-Host "Default Path : " -foreground DarkGray -NoNewline
-# Write-Host $(Get-Location) -foreground DarkGray 
 Write-Host ("-------------------------------------") -foreground Blue
 Write-Host "" # New line
 function Get-Time 
@@ -37,10 +37,10 @@ function prompt
 function Clear
 {
     Clear-Host
-    Write-Host ("--------------------------") -foreground Blue
+    Write-Host ("-------------------------------------") -foreground Blue
     Write-Host "Shelling  -  " -foreground DarkYellow -NoNewline
     Write-Host (Get-Date) -foreground DarkYellow
-    Write-Host ("--------------------------") -foreground Blue
+    Write-Host ("-------------------------------------") -foreground Blue
     Write-Host "" # New line
 }
 
