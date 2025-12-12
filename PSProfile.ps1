@@ -1,15 +1,19 @@
 
 # Set default location
 # Only change location if we're in the default Windows PowerShell starting location
-if ((Get-Location).Path -eq "$env:USERPROFILE") {
+if ((Get-Location).Path -eq "$env:USERPROFILE") 
+{
     Set-Location 'C:/_Yinnis/'
 }
+
+Remove-Item Alias:\clear
 Clear-Host
-Write-Host ("--------------------------") -foreground Blue
-Write-Host "Shelling" -foreground DarkYellow
+Write-Host ("-------------------------------------") -foreground Blue
+Write-Host "Shelling  -  " -foreground DarkYellow -NoNewline
+Write-Host (Get-Date) -foreground DarkYellow
 # Write-Host "Default Path : " -foreground DarkGray -NoNewline
 # Write-Host $(Get-Location) -foreground DarkGray 
-Write-Host ("--------------------------") -foreground Blue
+Write-Host ("-------------------------------------") -foreground Blue
 Write-Host "" # New line
 function Get-Time 
 { 
@@ -27,6 +31,18 @@ function prompt
     Write-Host $(if ($nestedpromptlevel -ge 1){'>>'}) -NoNewline 
     return '>' 
 } 
+
+# New clear function ( I removed the Alias for clear )
+# Remove-Item Alias:\clear
+function Clear
+{
+    Clear-Host
+    Write-Host ("--------------------------") -foreground Blue
+    Write-Host "Shelling  -  " -foreground DarkYellow -NoNewline
+    Write-Host (Get-Date) -foreground DarkYellow
+    Write-Host ("--------------------------") -foreground Blue
+    Write-Host "" # New line
+}
 
 function gpush {
     param($branch = "master")

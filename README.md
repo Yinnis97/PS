@@ -52,7 +52,17 @@ To load your real profile script, dot-source it from the PowerShell profile:
 **Keeping the real config in one file makes it easy to sync across machines.**          
 
 
+## 5. Installing Powershell 7 
 
+### Windows 
+```cmd
+winget search --id Microsoft.PowerShell
+winget install --id Microsoft.PowerShell --source winget
+New-Item -Path $PROFILE -ItemType File -Force
+``` 
+**Powershell 7 uses a different profile path, that's why we create a new profile file.**    
+**Just redirct this script to the PS5 or your other profile script.**   
 
+[Source](https://learn.microsoft.com/en-us/powershell/scripting/install/install-powershell-on-windows?view=powershell-7.5)
 #
-**Disclaimer : This is for personal use, but feel free to copy.**
+**Disclaimer : This is for personal use**
